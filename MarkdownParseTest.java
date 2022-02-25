@@ -66,6 +66,7 @@ public class MarkdownParseTest {
     }
 
     // -------------------------lab report tests-------------------------------
+    /*
     @Test
     public void snippet1Test() throws IOException {
         Path fileName = Path.of("snippet1.md");
@@ -75,6 +76,18 @@ public class MarkdownParseTest {
         expected.add("`google.com");
         expected.add("google.com");
         expected.add("ucsd.edu");
+        assertEquals(expected, links);
+    }
+    */
+    @Test
+    public void snippet2Test() throws IOException {
+        Path fileName = Path.of("snippet2.md");
+	    String contents = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(contents);
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("a.com");
+        expected.add("a.com(())");
+        expected.add("example.com");
         assertEquals(expected, links);
     }
 
